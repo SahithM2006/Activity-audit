@@ -57,3 +57,5 @@ Use the following CIA-based asset-oriented checklist for each asset:
 ## Sample Output:
 ## 6. Observations and Tabulation
 ![Screenshot 2025-05-17 110023](https://github.com/user-attachments/assets/ff305568-6eb3-48af-9324-0a3f435dad07)
+## Result:
+You have identified all active storage assets and evaluated them based on security posture and risk level
