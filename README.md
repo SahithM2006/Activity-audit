@@ -1,61 +1,45 @@
-## Ex 4: Asset-Oriented Risk Assessment of Storage Assets in AWS and Azure
-## Aim:
-To perform an asset-oriented risk assessment of cloud storage assets including:
-● AWS Elastic Block Store (EBS)
-● AWS Elastic File System (EFS)
-● Azure Files (File Storage)
-Pre-requisites:
-## 1.Background:
-Cloud storage services offer flexible, scalable options for storing data. However, each storage type
-brings distinct security risks and configurations. This experiment focuses on identifying assets and
-performing a detailed risk assessment based on confidentiality, integrity, and availability (CIA), access
-control, encryption, and auditing capabilities.
-## 2.Tools Required:
-● AWS Console with EC2, EBS, and EFS access
-● Azure Portal with Storage Account access
-● IAM credentials with sufficient permissions
-● Risk Assessment Template (provided)● Internet browser
-● Microsoft Excel or Google Sheets for tabulating findings
-## 4. Procedure:
-Part A: Identifying AWS Storage Assets
-## Step 1: Login to AWS Console
-● Go to https://aws.amazon.com/console
-● Log in using IAM or root credentials
-## Step 2: Identify EBS Volumes
-● Navigate to EC2 > Volumes (under Elastic Block Store)
-● Observe and record the following for each volume:
-● Volume ID
-● Size and Type (e.g., gp2, io1)
-● Availability Zone
-● Attached instance (if any)
-● Encryption status
-● Tags
-## Step 3: Identify EFS File Systems
-● Go to EFS > File systems
-● For each file system, record:
-● File system ID and name
-● Mount targets (AZs)
-● Throughput mode (bursting/provisioned)
-● Performance mode
-● Lifecycle policy
-● Encryption at rest status
-Part B: Identifying Azure File Storage Assets
-## Step 4: Login to Azure Portal
-● Go to https://portal.azure.com
-● Log in using credentials with access to storage accounts
-## Step 5: View File Shares● Navigate to Storage Accounts > Choose Account > File Shares
-● For each file share, record:
-● Name
-● Quota (in GB)
-● Used space
-● Protocol (SMB/NFS)
-● Authentication method (SAS Tokens, Azure AD, Shared Keys)
-● Snapshot policies
-## 5. Risk Assessment Methodology
-Use the following CIA-based asset-oriented checklist for each asset:
-![Screenshot 2025-05-17 110000](https://github.com/user-attachments/assets/fd476316-83b0-4f40-b976-a648d05f7b03)
-## Sample Output:
-## 6. Observations and Tabulation
-![Screenshot 2025-05-17 110023](https://github.com/user-attachments/assets/ff305568-6eb3-48af-9324-0a3f435dad07)
-## Result:
-You have identified all active storage assets and evaluated them based on security posture and risk level
+# EX - 4 Auditing Cloud Activity Using AWS CloudTrail
+
+## Aim
+
+To enable and analyze AWS CloudTrail logs to audit user and resource activities in a cloud environment.
+
+## Requirements
+1. AWS Console access
+2. CloudTrail service enabled
+3. S3 bucket (for storing logs)
+4. IAM permissions to view audit logs
+
+## Procedure
+
+### Step 1: Enable CloudTrail
+Go to CloudTrail from AWS Console
+Click Trails > Create trail
+Name: CloudAuditTrail
+Apply trail to all regions
+Log events:
+ - Management events: Read & Write
+ - Data events: S3, Lambda (optional)
+Create or select an S3 bucket for log storage
+Enable CloudWatch Logs integration (optional)
+
+### Step 2: Review Event History
+Go to Event history
+Filter events by:
+- Username (IAM role or user)
+- Event name (e.g., CreateBucket, TerminateInstances)
+- Date/Time
+- Resource type (e.g., S3, EC2)
+
+### Step 3: Download or Export Logs
+
+Use the Download CSV option to export logs
+Analyze logs in Excel/Sheets for reporting
+
+## Output:
+
+![AWS-CloudTrail-PCI-Req-10-Login-Activity](https://github.com/user-attachments/assets/8953eee6-bb40-43d0-81c6-88da6444b349)
+
+## Result
+
+All AWS user activities, including volume creation, deletion, and permission changes, were successfully audited using CloudTrail.
